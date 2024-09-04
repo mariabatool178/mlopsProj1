@@ -11,7 +11,7 @@ X = data.iloc[:,:-1]
 y = data.iloc[:, -1]
 
 # Train test split for accuracy calculation on any the testing data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_size=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Make predictions for X_test set
 y_pred = model.predict(X_test)
@@ -29,7 +29,7 @@ st.write(f"Model {accuracy}")
 st.header("Real-Time Prediction")
 input_data = []
 for col in X_test.columns:
-    input_value = st.numner_input(f'Input for feature {col}', value='')
+    input_value = st.number_input(f'Input for feature {col}', value=0.0)
     input_data.append(input_value)
 
 # Convert input data to dataframe
